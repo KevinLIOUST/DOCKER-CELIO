@@ -9,6 +9,8 @@
  */
 
 /* `celio`.`vet` */
+
+// Tableau des vêtements à mettre dans le magasin
 $clothes = [
     [
         'id' => '1',

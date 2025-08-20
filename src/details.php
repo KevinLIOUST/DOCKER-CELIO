@@ -1,5 +1,7 @@
-<?php
-require_once 'product/clothes.php';
+<!-- Au moment où on charge la page pour l'afficher -->
+
+<!-- On utilise le require_once pour importer un fichier -->
+<?php require_once 'product/clothes.php';
 // var_dump($clothes);
 ?>
 
@@ -8,7 +10,7 @@ require_once 'product/clothes.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop Vêtements !!!!</title>
 
     <!-- Lien vers Bootstrap -->
     <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
@@ -28,9 +30,20 @@ require_once 'product/clothes.php';
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+<!-- Nom de la page -->
     <div class="d-flex justify-content-center">
         <h1><b>Détails de l'article</b></h1>
     </div>
+
+    <!-- Les détails de l'article en question -->
+
+    <!-- On regarde si l'id du vêtement existe dans l'url, On affiche un message si l'id existe pas -->
+    <?php if ($_GET['id'] > count($clothes)) { ?>
+        <h1 class="text-center mt-2">Le vêtement avec l'id <b><?= $_GET[
+            'id'
+        ] ?></b> n'existe pas !!!!</h1>
+    <?php } else { ?>
     <div class="div-article-details m-3 p-3">
         <div class="d-flex justify-content-center fs-3">
             <p><b><?= $clothes[$_GET['id'] - 1]['type'] ?></b></p>
@@ -49,5 +62,6 @@ require_once 'product/clothes.php';
             <p>Prix : <b><?= $clothes[$_GET['id'] - 1]['price'] ?> €</b></p>
         </div>
     </div>
+    <?php } ?>
 </body>
 </html>
